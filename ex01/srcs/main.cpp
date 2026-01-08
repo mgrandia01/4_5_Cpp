@@ -23,7 +23,10 @@ int main()
 	else if (command == "SEARCH")
   		std::cout << "Has escrit SEARCH" << std::endl;
 	else if (command == "EXIT")
-  		std::cout << "Has escrit EXIT" << std::endl;
+	{
+  		std::cout << "Exit program." << std::endl;
+		break;
+	}
 	else
 		std::cout << "Invalid command. Try again." << std::endl;
   }
