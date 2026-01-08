@@ -9,7 +9,25 @@ class Contact
     
     Contact(void);
     ~Contact(void);
-  
+	
+	//Setters
+	void setContact(const std::string &fn,
+					const std::string &ln, const std::string &nn,
+					const std::string &pn, const std::string&ds)
+	{
+		firstName = fn;
+		lastName = ln;
+		nickName = nn;
+		phoneNumber = pn;
+		darkestSecret = ds;
+	}
+	//Getters
+	std::string getFirstName()const{return firstName;}
+	std::string getLastName()const{return lastName;}
+	std::string getNickName()const{return nickName;}
+	std::string getPhoneNumber()const{return phoneNumber;}
+	std::string getDarkestSecret()const{return darkestSecret;}
+    
   private:
 	std::string firstName;
 	std::string lastName;
