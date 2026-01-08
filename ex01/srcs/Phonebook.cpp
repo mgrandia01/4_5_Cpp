@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Phonebook.class.hpp"
+#include "../includes/Phonebook.hpp"
 
 Phonebook::Phonebook(void)
 {
