@@ -63,7 +63,7 @@ $(DIR_OBJS):
 	@mkdir -p $(DIR_OBJS)
 
 # Compilar los archivos .c en .o con generación de dependencias .d
-$(DIR_OBJS)%.o: $(DIR_SRC)%.c Makefile | $(DIR_OBJS)
+$(DIR_OBJS)%.o: $(DIR_SRC)%.cpp Makefile | $(DIR_OBJS)
 	@echo "$(SLATE)⚙️  Compilando $< ...$(RESET)"
 	@$(CC) $(FLAGS) -MD -I$(DIR_INC) -c $< -o $@
 
