@@ -10,10 +10,13 @@ class Phonebook
     Phonebook(void);
     ~Phonebook(void);
 	
-  	void	addContact();	
+  	void	addContact();
+	void	searchContacts();
+
   private:
     Contact contacts[8];
     int numbercontacts;
+    int nextIndex;
 };
 
 #endif
