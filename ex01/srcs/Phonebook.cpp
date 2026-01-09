@@ -46,8 +46,87 @@ void Phonebook::addContact()
 	std::cout << "Contact added succesfully!" <<std::endl;
 }
 
+void Phonebook::printContactsTable(int totalContacts, int startIndex)
+{
+	/*int	totalContacts;
+	int	startIndex;
+
+	if (nextIndex < 8)
+	{
+		totalContacts = nextIndex;
+		startIndex = 0;
+	}
+	else
+	{
+		totalContacts = 8;
+		startIndex = numbercontacts;
+	}*/
+	std::cout << "     Index|First Name| Last Name|  Nickname" << std::endl;
+	for (int i = 0; i < totalContacts; i++)
+	{
+		int	idx = (startIndex + i) % 8;
+		std::cout << "         "<< i << "|"
+			<< formatColumn(contacts[idx].getFirstName()) << "|"
+			<< formatColumn(contacts[idx].getLastName()) << "|"
+			<< formatColumn(contacts[idx].getNickName()) << "|" << std::endl;
+	}
+
+}
+
+// Convierte un string a int, devuelve true si pudo y pone el resultado en 'result'
+bool stringToInt(const std::string &str, int &result)
+{
+    result = 0;
+
+    if (str.empty())
+        return false;
+
+    for (size_t i = 0; i < str.length(); i++)
+    {
+        if (str[i] < '0' || str[i] > '9')  // si no es un dígito
+            return false;
+
+        result = result * 10 + (str[i] - '0'); // construir el número
+    }
+
+    return true;
+}
+
+
+void Phonebook::printContactDetails(int totalContacts, int startIndex)
+{
+	std::string input;
+	int	choseIndex = -1;
+	int idx;
+
+	std::cout <<"Enter the index of the contect to view details: ";
+	std::getline(std::cin, input);
+
+	if (!stringToInt(input, choseIndex))
+	{
+		std::cout <<"Invalid input. Please enter a number." << std::endl;
+		return ;
+	}
+	if (choseIndex < 0 || choseIndex >= totalContacts)
+	{
+		std::cout << "Index out of range" << std::endl;
+		return;
+	}
+	idx = (startIndex + choseIndex) % 8;
+	std::cout << "First Name: " << contacts[idx].getFirstName() <<std::endl;
+	std::cout << "Last Name: " << contacts[idx].getLastName() <<std::endl;
+	std::cout << "Nick Name: " << contacts[idx].getNickName() <<std::endl;
+	std::cout << "Phone Number: " << contacts[idx].getPhoneNumber() <<std::endl;
+	std::cout << "Darkest Secret: " << contacts[idx].getDarkestSecret() <<std::endl;
+}
+
 void	Phonebook::searchContacts()
 {
+	if (nextIndex == 0)
+	{
+		std::cout << "Sorry, your phonebook is currently empty." << std::endl;
+		return;
+	}
 	int	totalContacts;
 	int	startIndex;
 
@@ -61,13 +140,6 @@ void	Phonebook::searchContacts()
 		totalContacts = 8;
 		startIndex = numbercontacts;
 	}
-	std::cout << "     Index|First Name| Last Name|  Nickname" << std::endl;
-	for (int i = 0; i < totalContacts; i++)
-	{
-		int	idx = (startIndex + i) % 8;
-		std::cout << "         "<< i << "|"
-			<< formatColumn(contacts[idx].getFirstName()) << "|"
-			<< formatColumn(contacts[idx].getLastName()) << "|"
-			<< formatColumn(contacts[idx].getNickName()) << "|" << std::endl;
-	}
+	printContactsTable(totalContacts, startIndex);
+	printContactDetails(totalContacts, startIndex);
 }

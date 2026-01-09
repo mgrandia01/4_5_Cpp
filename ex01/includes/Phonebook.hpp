@@ -12,6 +12,8 @@ class Phonebook
 	
   	void	addContact();
 	void	searchContacts();
+	void	printContactsTable(int totalContacts, int startIndex);
+	void	printContactDetails(int totalContacts, int startIndex);
 
   private:
     Contact contacts[8];
