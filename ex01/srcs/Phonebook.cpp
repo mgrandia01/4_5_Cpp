@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include "../includes/Phonebook.hpp"
 
 Phonebook::Phonebook(void) : numbercontacts(0), nextIndex(0)
@@ -14,13 +15,20 @@ Phonebook::~Phonebook(void)
 std::string getInput(const std::string &prompt)
 {
 	std::string input;
-	do
+	while(true)
 	{
 		std::cout << prompt;
-		std::getline(std::cin,input);
-		if(input.empty())
+		if (!std::getline(std::cin,input))
+		{
+			std::cout << "\nEOF detected. Exiting program. \n";
+			exit(0);
+		}
+		if (input.empty())
+		{
 			std::cout << "This field cannot be empty. Try again." << std::endl;
-	}while(input.empty());
+			continue;
+		}
+	}
 	return input;
 }
 
@@ -48,19 +56,6 @@ void Phonebook::addContact()
 
 void Phonebook::printContactsTable(int totalContacts, int startIndex)
 {
-	/*int	totalContacts;
-	int	startIndex;
-
-	if (nextIndex < 8)
-	{
-		totalContacts = nextIndex;
-		startIndex = 0;
-	}
-	else
-	{
-		totalContacts = 8;
-		startIndex = numbercontacts;
-	}*/
 	std::cout << "     Index|First Name| Last Name|  Nickname" << std::endl;
 	for (int i = 0; i < totalContacts; i++)
 	{

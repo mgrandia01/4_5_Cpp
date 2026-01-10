@@ -22,7 +22,6 @@ int main()
   		phonebook.addContact();
 	else if (command == "SEARCH")
 		phonebook.searchContacts();
-//	std::cout << "Has escrit SEARCH" << std::endl;
 	else if (command == "EXIT")
 	{
   		std::cout << "Exit program." << std::endl;
