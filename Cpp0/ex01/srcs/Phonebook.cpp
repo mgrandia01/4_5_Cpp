@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Phonebook.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mgrandia <mgrandia@student.42barcelon      +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/16 16:48:18 by mgrandia          #+#    #+#             */
-/*   Updated: 2026/01/16 16:57:28 by mgrandia         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <iostream>
 #include <cstdlib>
 #include "../includes/Phonebook.hpp"
@@ -40,8 +28,8 @@ std::string getInput(const std::string &prompt)
 			std::cout << "This field cannot be empty. Try again." << std::endl;
 			continue;
 		}
-		return input;
 	}
+	return input;
 }
 
 std::string formatColumn(const std::string &str)
@@ -90,10 +78,10 @@ bool stringToInt(const std::string &str, int &result)
 
     for (size_t i = 0; i < str.length(); i++)
     {
-        if (str[i] < '0' || str[i] > '9')
+        if (str[i] < '0' || str[i] > '9')  // si no es un dígito
             return false;
 
-        result = result * 10 + (str[i] - '0');
+        result = result * 10 + (str[i] - '0'); // construir el número
     }
 
     return true;

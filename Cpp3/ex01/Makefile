@@ -13,7 +13,7 @@
 # ─────────────────────────────────────────────────────────────
 # CONFIGURACIÓN GENERAL
 # ─────────────────────────────────────────────────────────────
-NAME = phonebook 
+NAME = ex00
 CC = c++
 RM = rm -f
 FLAGS = -Wall -Wextra -Werror -std=c++98 -g #-fsanitize=address
@@ -36,8 +36,7 @@ DIR_SRC = srcs/
 # ─────────────────────────────────────────────────────────────
 # ARCHIVOS
 # ─────────────────────────────────────────────────────────────
-SRC = Phonebook.cpp main.cpp Contact.cpp
-
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS = $(addprefix $(DIR_OBJS), $(SRC:%.cpp=%.o))
 DEP_FILES = $(OBJS:%.o=%.d)
 
@@ -63,7 +62,7 @@ $(DIR_OBJS):
 	@mkdir -p $(DIR_OBJS)
 
 # Compilar los archivos .c en .o con generación de dependencias .d
-$(DIR_OBJS)%.o: $(DIR_SRC)%.cpp Makefile includes/Phonebook.hpp | $(DIR_OBJS)
+$(DIR_OBJS)%.o: $(DIR_SRC)%.cpp Makefile includes/ClapTrap.hpp includes/ScavTrap.hpp| $(DIR_OBJS)
 	@echo "$(SLATE)⚙️  Compilando $< ...$(RESET)"
 	@$(CC) $(FLAGS) -MD -I$(DIR_INC) -c $< -o $@
 
