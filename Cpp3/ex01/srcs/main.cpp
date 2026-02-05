@@ -1,25 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgrandia <mgrandia@student.42barcelon      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/01 10:00:40 by mgrandia          #+#    #+#             */
+/*   Updated: 2026/02/05 12:58:34 by mgrandia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ClapTrap.hpp"
+#include "../includes/ScavTrap.hpp"
+#include <iostream>
 
-int	main(void)
+int main()
 {
-	ClapTrap a("Marta");
-	ClapTrap b("Berta");
-	ClapTrap c("Nono");
+	std::cout << "==============================" << std::endl;
+	std::cout << " TEST 1: Constructors" << std::endl;
+	std::cout << "==============================" << std::endl;
 
-	a.attack("Bob");
-	b.attack("Alice");
-	c.attack("Juan");
+	ScavTrap a("Maria");
+	ScavTrap b("James");
+	ScavTrap c; // default constructor
 
-
-	a.takeDamage(2);
-	b.takeDamage(3);
-	c.takeDamage(11);
-
-	a.beRepaired(2);
-	b.beRepaired(20);
-	c.beRepaired(5);
-
-
-
-	return (0);
+	std::cout << "==============================" << std::endl;
+	std::cout << " TEST 2: Attack" << std::endl;
+	std::cout << "==============================" << std::endl;
+	
+	for (int i = 0; i < 51; i ++)
+		a.attack("bob");
+    return 0;
 }
