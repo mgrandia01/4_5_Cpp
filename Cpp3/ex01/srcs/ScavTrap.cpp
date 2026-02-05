@@ -35,7 +35,6 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 ScavTrap::ScavTrap(const ScavTrap &other): ClapTrap(other)
 {
 	std::cout << "ScavTrap Copy contructor called" << std::endl;
-	*this = other;
 }
 
 //Overloaded Operator
