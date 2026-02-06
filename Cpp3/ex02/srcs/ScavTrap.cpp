@@ -60,8 +60,18 @@ ScavTrap::~ScavTrap()
 //Sobrescribir attack
 void ScavTrap::attack(const std::string& target)
 {
-	std::cout << "ScavTrap " << _name << " attacks " << target << " ,causing " << _attackDamage << " points of damage!" << std::endl;
-	ClapTrap::attack(target);
+	if (_hitPoints <= 0)
+	{
+		std::cout << "ScavTrap " << _name << " can't attack because it has no hit points left!" << std::endl;
+		return ;
+	}
+	if (_energyPoints <= 0)
+	{
+		std::cout << "ScavTrap " << _name << " can't attack because it has no energy points left!" << std::endl;
+		return ;
+	}
+	_energyPoints--;
+	std::cout << "ScavTrap " << _name << " attacks "<< target<<", causing "<< _attackDamage <<" points of damage!" << std::endl;
 }
 
 /* ************************************************************************** */
