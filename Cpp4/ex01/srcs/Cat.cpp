@@ -17,16 +17,17 @@
 /* ************************************************************************** */
 
 // Constructors
-Cat::Cat(): AAnimal()
+Cat::Cat(): Animal()
 {
 	type = "Cat";
+  brain = new Brain();
 	std::cout <<"[Cat] Default constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &other) : AAnimal()
+Cat::Cat(const Cat &other) : Animal()
 {
-	std::cout << "[Cat] Copy constructor called" << std::endl;
-	*this = other;
+	brain = new Brain(*other.brain);
+  std::cout << "[Cat] Copy constructor called" << std::endl;
 }
 
 //Overloaded Operator
@@ -35,13 +36,17 @@ Cat &Cat::operator=(const Cat &other)
 
 	std::cout <<"[Cat] copy assigment operator called" << std::endl;
 	if (this != &other)
-		this->type = other.type;
+  {
+    Animal::operator=(other);
+    *brain = *other.brain;
+  }
 	return (*this);
 }
 
 //Destructor
 Cat::~Cat()
 {
+  delete brain;
 	std::cout <<"[Cat] Destructor called" << std::endl;
 }
 
@@ -55,5 +60,8 @@ void Cat::makeSound() const
 /* ************************************************************************** */
 
 //Getters
-
+Brain* Cat::getBrain() const
+{
+  return brain;
+}
 //Setters

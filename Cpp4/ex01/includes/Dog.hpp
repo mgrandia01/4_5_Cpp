@@ -13,9 +13,10 @@
 #ifndef DOG_HPP
 #define DOG_HPP
 
-#include "AAnimal.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Dog : public AAnimal
+class Dog : public Animal
 {
 	public:
 		//Constructors
@@ -30,11 +31,12 @@ class Dog : public AAnimal
 
 		//Pubplic Methods
 		virtual void makeSound() const;
-
+    Brain* getBrain() const;
 		//Getters
 		
 		//Setters
-
+    private:
+      Brain* brain;
 };
 
 #endif

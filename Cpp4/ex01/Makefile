@@ -36,7 +36,7 @@ DIR_SRC = srcs/
 # ─────────────────────────────────────────────────────────────
 # ARCHIVOS
 # ─────────────────────────────────────────────────────────────
-SRC = main.cpp AAnimal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
 OBJS = $(addprefix $(DIR_OBJS), $(SRC:%.cpp=%.o))
 DEP_FILES = $(OBJS:%.o=%.d)
 
@@ -62,7 +62,7 @@ $(DIR_OBJS):
 	@mkdir -p $(DIR_OBJS)
 
 # Compilar los archivos .c en .o con generación de dependencias .d
-$(DIR_OBJS)%.o: $(DIR_SRC)%.cpp Makefile includes/AAnimal.hpp includes/Dog.hpp includes/Cat.hpp includes/WrongCat.hpp includes/WrongAnimal.hpp | $(DIR_OBJS)
+$(DIR_OBJS)%.o: $(DIR_SRC)%.cpp Makefile includes/Animal.hpp includes/Dog.hpp includes/Cat.hpp includes/WrongCat.hpp includes/WrongAnimal.hpp includes/Brain.hpp| $(DIR_OBJS)
 	@echo "$(SLATE)⚙️  Compilando $< ...$(RESET)"
 	@$(CC) $(FLAGS) -MD -I$(DIR_INC) -c $< -o $@
 

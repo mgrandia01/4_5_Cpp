@@ -13,9 +13,10 @@
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "AAnimal.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class Cat : public AAnimal
+class Cat : public Animal
 {
 	public:
 		//Constructors
@@ -30,10 +31,14 @@ class Cat : public AAnimal
 
 		//Pubplic Methods
 		virtual void makeSound() const;
+    Brain* getBrain() const;
 
 		//Getters
 		
 		//Setters
+
+private:
+  Brain* brain;
 
 };
 

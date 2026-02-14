@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AAnimal.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
@@ -19,21 +20,21 @@
 
 int main()
 {
-//	const AAnimal* meta = new AAnimal();
-	const AAnimal* j = new Dog();
-	const AAnimal* i = new Cat();
+	std::cout << "===== BRAIN TEST =====" << std::endl;
 
-	std::cout << j->getType() << std::endl;
-	std::cout << i->getType() << std::endl;
+  Dog dog1;
+  dog1.getBrain()->setIdea(0, "I'm happy");
+  dog1.getBrain()->setIdea(1, "I'm borred");
 
-	i->makeSound();
-	j->makeSound();
-//	meta->makeSound();
-
-//	delete meta;
-	delete j;
-	delete i;
+  std::cout << "Dog1 idea 0 = " << dog1.getBrain()->getIdea(0) << std::endl;
+  std::cout << "Dog1 idea 1 = " << dog1.getBrain()->getIdea(1) << std::endl;
 	
-	return 0;
+	std::cout << "===== COPY TEST =====" << std::endl;
+  Dog dog2(dog1);
+  std::cout << "Dog2 idea 0 = " << dog2.getBrain()->getIdea(0) << std::endl;
+  dog1.getBrain()->setIdea(0, "I have a new Idea!");
+  std::cout << "\n Dog2 modifier \n << std::endl";
+  std::cout << "Dog2 idea 0 = " << dog2.getBrain()->getIdea(0) << std::endl;
+  return 0;
 }
 
