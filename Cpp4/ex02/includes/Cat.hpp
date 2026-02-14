@@ -14,7 +14,7 @@
 #define CAT_HPP
 
 #include "AAnimal.hpp"
-
+#include "Brain.hpp"
 class Cat : public AAnimal
 {
 	public:
@@ -31,9 +31,13 @@ class Cat : public AAnimal
 		//Pubplic Methods
 		virtual void makeSound() const;
 
+		Brain* getBrain() const;
 		//Getters
 		
 		//Setters
+	private:
+		Brain* brain;
+
 
 };
 

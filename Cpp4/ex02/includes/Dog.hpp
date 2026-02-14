@@ -14,6 +14,7 @@
 #define DOG_HPP
 
 #include "AAnimal.hpp"
+#include "Brain.hpp"
 
 class Dog : public AAnimal
 {
@@ -30,11 +31,13 @@ class Dog : public AAnimal
 
 		//Pubplic Methods
 		virtual void makeSound() const;
-
-		//Getters
 		
+		//Getters
+		Brain* getBrain() const;
 		//Setters
 
+	private:
+		Brain* brain;
 };
 
 #endif
